@@ -6,23 +6,60 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "lint": "npm run lint:script && npm run lint:style",
+    "preview": "vite preview",
+    "lint:script": "eslint --ext .js,.jsx,.ts,.tsx, --fix --quiet ./",
+    "lint:style": "stylelint --fix \"src/**/*.{css,scss}\"",
+    "postinstall": "husky install",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "@emotion/babel-plugin": "^11.10.8",
+    "@types/node": "^20.1.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
-    "@typescript-eslint/parser": "^5.57.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
     "@vitejs/plugin-react": "^4.0.0",
-    "eslint": "^8.38.0",
+    "autoprefixer": "^10.4.14",
+    "babel-plugin-styled-components": "^2.1.1",
+    "commitlint": "^17.6.3",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8",
+    "sass": "^1.62.1",
+    "stylelint": "^15.6.1",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-recess-order": "^4.0.0",
+    "stylelint-config-standard": "^33.0.0",
+    "stylelint-config-standard-scss": "^9.0.0",
+    "stylelint-prettier": "^3.0.0",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2"
+    "vite": "^4.3.2",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-stylelint": "^4.3.0",
+    "vite-plugin-windicss": "^1.8.10",
+    "windicss": "^3.5.6"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,tsx,ts,json}": [
+      "npm run lint:script",
+      "git add --force"
+    ],
+    "**/*.{css,scss}": [
+      "npm run lint:style",
+      "git add --force"
+    ]
   }
 }
