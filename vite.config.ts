@@ -5,6 +5,7 @@ import autoprefixer from "autoprefixer";
 import windi from "vite-plugin-windicss";
 import viteEslint from "vite-plugin-eslint";
 import viteStylelint from "vite-plugin-stylelint";
+import svgr from "vite-plugin-svgr";
 
 const variablePath = normalizePath(path.resolve("./src/css/variable.scss"));
 
@@ -12,7 +13,9 @@ const variablePath = normalizePath(path.resolve("./src/css/variable.scss"));
 export default defineConfig({
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src")
+      "@": path.resolve(__dirname, "src"),
+      // 在 css下的@import也会生效
+      "@assets": path.resolve(__dirname, "src/assets")
     },
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"]
   },
@@ -26,7 +29,8 @@ export default defineConfig({
     windi(),
     viteStylelint({
       exclude: /windicss|node_modules/
-    })
+    }),
+    svgr()
   ],
   css: {
     preprocessorOptions: {
@@ -41,5 +45,6 @@ export default defineConfig({
         })
       ]
     }
-  }
+  },
+  assetsInclude: [".gltf"]
 });

@@ -50,6 +50,7 @@
     "vite": "^4.3.2",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-stylelint": "^4.3.0",
+    "vite-plugin-svgr": "^3.2.0",
     "vite-plugin-windicss": "^1.8.10",
     "windicss": "^3.5.6"
   },
