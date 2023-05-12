@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "esbuild": "./node_modules/.bin/esbuild src/index.jsx --bundle --outfile=dist/out.js",
     "lint": "npm run lint:script && npm run lint:style",
     "preview": "vite preview",
     "lint:script": "eslint --ext .js,.jsx,.ts,.tsx, --fix --quiet ./",
@@ -14,6 +15,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "esbuild": "^0.17.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
