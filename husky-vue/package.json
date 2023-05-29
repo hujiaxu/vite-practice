@@ -1,0 +1,27 @@
+{
+  "name": "husky-vue",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@babylonjs/core": "^6.4.1",
+    "@babylonjs/gui": "^6.4.1",
+    "@babylonjs/inspector": "^6.4.1",
+    "@babylonjs/loaders": "^6.4.1",
+    "@babylonjs/materials": "^6.4.1",
+    "@babylonjs/gui-editor": "^5.39.0",
+    "@babylonjs/serializers": "^5.39.0",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2",
+    "vue-tsc": "^1.4.2"
+  }
+}
